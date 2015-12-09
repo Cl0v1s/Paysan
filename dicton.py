@@ -33,17 +33,35 @@ for v in twords:
 	if v not in words:
 		words.append(v)
 
-phra = "C'est "
+phra = ""
 		
 typ = random.randint(0, 2)
 
-typ = 0
 if typ == 0:
+	phra = "C'est "
 	if random.randint(0,1) == 0:
 		phra = phra + "pas "
 	phra = phra + "en " + verbs[random.randint(0,len(verbs)-1)].replace("er", "ant")
 	phra  = phra + " qu'on " + verbs[random.randint(0,len(verbs)-1)].replace("er", "e")
 	phra = phra + " eul " + words[random.randint(0,len(words)-1)]
+elif typ == 1:
+	phra = "Qui " + verbs[random.randint(0,len(verbs)-1)].replace("er", "e")
+	gn = ""
+	if random.randint(0,1) == 0:
+		gn = words[random.randint(0,len(words)-1)]
+		phra = phra + " eul " + gn
+	phra = phra + ", " + verbs[random.randint(0,len(verbs)-1)].replace("er", "e")
+	if gn != "":
+		phra = phra + " eul " + gn
+elif typ == 2:
+	ft = "au pieds"
+	u = random.randint(0,2)
+	if u == 0:
+		ft = "au"
+	elif u == 1:
+		ft ="a la gueule"
+	phra = "C'est "+ft+" d'eul " + words[random.randint(0,len(words)-1)] +" qu'on voit eul " + words[random.randint(0,len(words)-1)]
+	
 		
 print phra
 
